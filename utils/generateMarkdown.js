@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// A function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
   if (license === "none"){
     return ""
@@ -8,22 +7,29 @@ function renderLicenseBadge(license) {
   }
 }
 
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
+// A function that returns the license section of README
+function renderLicenseSection(license, title) {
+  let newLicense = license.replace(/[_&\/\\#,+()$~%'":*?<>{}]/g, ' ');
+  if (!newLicense.includes('license') && !newLicense.includes('License') && newLicense !== "The Unlicense"){
+    newLicense = newLicense + " License";
+  }
   if (license === "none"){
     return ``
   } else {
-    return `This README Generator is covered under the ${license} License.`
+    return `${title} is covered under the ${newLicense}.`
   }
 }
 
-// TODO: Create a function to generate markdown for README
+// A function that renders the user's email
+function renderEmail(email) {
+  if (email === ""){
+    return ``
+  } else {
+    return `If you have any questions, feel free to email ${email}`
+  }
+}
+
+// A function that generates markdown for the README
 function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
@@ -35,9 +41,9 @@ function generateMarkdown(data) {
   - [Installation](#installation)
   - [Usage](#usage)
   - [How to Contribute](#how-to-contribute)
+  ${data.license === "none" ? ``: `- [License](#license)`}
   - [How to Test](#how-to-test)
   - [Questions](#questions)
-  ${data.license === "none" ? ``: `- [License](#license)`}
 
   ## Installation
   ${data.install}
@@ -52,13 +58,15 @@ function generateMarkdown(data) {
   ${data.contributing}
 
   ## License
-  ${renderLicenseSection(data.license)}
+  ${renderLicenseSection(data.license, data.title)}
 
   ## How to Test
   ${data.tests}
 
   ## Questions
-  ${data.questions}`
+  [GitHub Profile](https://github.com/${data.github})
+
+  ${renderEmail(data.email)}`
 }
 
 module.exports = generateMarkdown;
