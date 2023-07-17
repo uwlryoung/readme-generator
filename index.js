@@ -18,7 +18,7 @@ const questions = [
 // A function to write the README file
 function writeToFile(fileName, data) {
 	fs.writeFile(fileName, data, (err) => {
-		err ? console.error(err) : console.log("\nREADME successfully created! Find the readme in the 'utils' folder.")
+		err ? console.error(err) : console.log("\nYour README was successfully created in a folder titled 'readmeFolder'!\nThis folder is in the file directory where you ran the Readme Generator.\n")
 	})
  }
 
@@ -85,7 +85,14 @@ function init() {
 			},
 		]).then(function(response){
 			const templatePage = generateMarkdown(response);
-			writeToFile("./utils/README.md", templatePage)
+			const folderName = './readmeFolder';
+
+			// Creates a folder to put the readme file into
+			if (!fs.existsSync(folderName)) {
+				fs.mkdirSync(folderName);
+			} 
+			
+			writeToFile("./readmeFolder/README.md", templatePage)
 		})
 }
 
