@@ -40,6 +40,7 @@ function generateMarkdown(data) {
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Credits](#credits)
   - [How to Contribute](#how-to-contribute)
   ${data.license === "none" ? ``: `- [License](#license)`}
   - [How to Test](#how-to-test)

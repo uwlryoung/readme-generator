@@ -9,11 +9,20 @@ const questions = [
 	"How to install: ",
 	"How to use: ",
 	"License: ", 
+	"Collaborators: ",
 	"How to Contribute: ",
 	"How to Test: ",
 	"GitHub Username: ",
 	"Email: "
 ];
+
+// const furtherQuestions = [
+// 	"What was your motivation? ",
+// 	"Why did you build this project? ",
+// 	"What problem does it solve? ",
+// 	"What did you learn? ",
+// 	"What makes your project stand out? "
+// ]
 
 // A function to write the README file
 function writeToFile(fileName, data) {
@@ -68,20 +77,24 @@ function init() {
 					"The_Unlicense"]
 			},
 			{
-				name: "contributing",
+				name: "credits",
 				message: questions[5]
 			},
 			{
-				name: "tests",
+				name: "contributing",
 				message: questions[6]
 			},
 			{
-				name: "github",
+				name: "tests",
 				message: questions[7]
 			},
 			{
-				name: "email",
+				name: "github",
 				message: questions[8]
+			},
+			{
+				name: "email",
+				message: questions[9]
 			},
 		]).then(function(response){
 			const templatePage = generateMarkdown(response);
