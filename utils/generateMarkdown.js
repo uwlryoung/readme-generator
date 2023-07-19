@@ -1,3 +1,4 @@
+// A function that returns answers for further questions about the projects description
 function renderFurtherQuestions(furtherDescription, motivation, why, problem, learn, standout){
   if (furtherDescription === true){
     return `\n${motivation} ${why} ${problem} ${learn} ${standout}`
@@ -37,6 +38,16 @@ function renderEmail(email) {
   }
 }
 
+// A function that renders any future challenges / improvements to the project that the 
+// user can input.
+function renderChallenges(future, challenges){
+  if (future === false){
+    return ``;
+  } else {
+    return `${challenges}`;
+  }
+}
+
 // A function that generates markdown for the README
 function generateMarkdown(data) {
   return `# ${data.title}
@@ -54,6 +65,8 @@ function generateMarkdown(data) {
   ${data.license === "none" ? ``: `- [License](#license)`}
   - [How to Test](#how-to-test)
   - [Questions](#questions)
+  ${data.future === false ? ``: `- [Challenges and Future Improvements](#challenges-and-future-improvements)`}
+
 
   ## Installation
   ${data.install}
@@ -76,7 +89,11 @@ function generateMarkdown(data) {
   ## Questions
   [GitHub Profile](https://github.com/${data.github})
 
-  ${renderEmail(data.email)}`
+  ${renderEmail(data.email)}
+
+  ## Challenges and Future Improvements
+  ${renderChallenges(data.future, data.addChallenge)}
+  `
 }
 
 module.exports = generateMarkdown;

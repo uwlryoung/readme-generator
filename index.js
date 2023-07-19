@@ -105,7 +105,19 @@ const questions = [
 	{
 	name: "email",
 	message: "Your email: "
-	}
+	},
+	{
+		type: "confirm",
+		name: "future",
+		message: "Do you want add \x1b[36mfuture challenges/improvements\x1b[0m to your project? "
+	},
+	{
+		name: "addChallenge",
+		message: "\x1b[36mWhat challenges/improvements would you like to make to your project?\x1b[0m ",
+		when(questions){
+			return questions.future === true;
+		}
+	},
 ];
 
 // A function to write the README file
