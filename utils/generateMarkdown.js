@@ -1,3 +1,11 @@
+function renderFurtherQuestions(furtherDescription, motivation, why, problem, learn, standout){
+  if (furtherDescription === true){
+    return `\n${motivation} ${why} ${problem} ${learn} ${standout}`
+  } else {
+    return;
+  }
+}
+
 // A function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
   if (license === "none"){
@@ -36,6 +44,7 @@ function generateMarkdown(data) {
   
   ## Description
   ${data.description}
+  ${renderFurtherQuestions(data.furtherDescription, data.motivation, data.why, data.problem, data.learn, data.standout)}
   ## Table of Contents 
   - [Description](#description)
   - [Installation](#installation)

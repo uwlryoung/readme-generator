@@ -14,6 +14,51 @@ const questions = [
 		message: "Project Description: "
 	},
 	{
+		type: "confirm",
+		name: "furtherDescription",
+		message: "Do you want to answer \x1b[36mfurther questions\x1b[0m about the description of your project? "
+	},
+	{
+		name: "motivation",
+		message: "\x1b[36mWhat was your motivation to build this project?\x1b[0m ",
+		suffix: "\x1b[90m(Press 'Enter' to skip.)\x1b[0m",
+		when(questions){
+			return questions.furtherDescription === true;
+		}
+	},
+	{
+		name: "why",
+		message: "\x1b[36mWhy did you build this project?\x1b[0m ",
+		suffix: "\x1b[90m(Press 'Enter' to skip.)\x1b[0m",
+		when(questions){
+			return questions.furtherDescription === true;
+		}
+	},
+	{
+		name: "problem",
+		message: "\x1b[36mWhat problem does it solve?\x1b[0m ",
+		suffix: "\x1b[90m(Press 'Enter' to skip.)\x1b[0m",
+		when(questions){
+			return questions.furtherDescription === true;
+		}
+	},
+	{
+		name: "learn",
+		message: "\x1b[36mWhat did you learn?\x1b[0m ",
+		suffix: "\x1b[90m(Press 'Enter' to skip.)\x1b[0m",
+		when(questions){
+			return questions.furtherDescription === true;
+		}
+	},
+	{
+		name: "standout",
+		message: "\x1b[36mWhat makes your project standout?\x1b[0m ",
+		suffix: "\x1b[90m(Press 'Enter' to skip.)\x1b[0m",
+		when(questions){
+			return questions.furtherDescription === true;
+		}
+	},
+	{
 		name: "install",
 		message: "How to Install: "
 	},
@@ -63,14 +108,6 @@ const questions = [
 	}
 ];
 
-// const furtherQuestions = [
-// 	"What was your motivation? ",
-// 	"Why did you build this project? ",
-// 	"What problem does it solve? ",
-// 	"What did you learn? ",
-// 	"What makes your project stand out? "
-// ]
-
 // A function to write the README file
 function writeToFile(fileName, data) {
 	fs.writeFile(fileName, data, (err) => {
@@ -83,21 +120,20 @@ function init() {
 	console.log(`												 
 ╦═╗┌─┐┌─┐┌┬┐┌┬┐┌─┐  ╔═╗┌─┐┌┐┌┌─┐┬─┐┌─┐┌┬┐┌─┐┬─┐
 ╠╦╝├┤ ├─┤ │││││├┤   ║ ╦├┤ │││├┤ ├┬┘├─┤ │ │ │├┬┘
-╩╚═└─┘┴ ┴─┴┘┴ ┴└─┘  ╚═╝└─┘┘└┘└─┘┴└─┴ ┴ ┴ └─┘┴└─`
-  )
-	console.log("Thank you for using the README Generator! \nPlease fill in the following prompts to make your professional readme.\n")
-	inquirer
-		.prompt(questions).then(function(response){
-			const templatePage = generateMarkdown(response);
-			const folderName = './readmeFolder';
+╩╚═└─┘┴ ┴─┴┘┴ ┴└─┘  ╚═╝└─┘┘└┘└─┘┴└─┴ ┴ ┴ └─┘┴└─`);
+	console.log("Thank you for using the README Generator! \nPlease fill in the following prompts to make your professional readme.\n");
 
-			// Creates a folder to put the readme file into
-			if (!fs.existsSync(folderName)) {
-				fs.mkdirSync(folderName);
-			} 
-			
-			writeToFile("./readmeFolder/README.md", templatePage)
-		})
+	inquirer.prompt(questions).then(function(response){
+		const templatePage = generateMarkdown(response);
+		const folderName = './readmeFolder';
+
+		// Creates a folder to put the readme file into
+		if (!fs.existsSync(folderName)) {
+			fs.mkdirSync(folderName);
+		} 
+		
+		writeToFile("./readmeFolder/README.md", templatePage)
+	})
 }
 
 // A function call to initialize the readme generator
