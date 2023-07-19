@@ -74,7 +74,8 @@ function init() {
 					"GNU_General_Public_License_v2.0",
 					"GNU_Lesser_General_Public_License_v2.1",
 					"Mozilla_Public_License_2.0",
-					"The_Unlicense"]
+					"The_Unlicense"],
+					loop: false,
 			},
 			{
 				name: "credits",
