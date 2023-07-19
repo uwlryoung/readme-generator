@@ -2,18 +2,65 @@ const generateMarkdown = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const output = [];
 // An array of questions for user input
 const questions = [
-	"Project Title: ",
-	"Project Description: ",
-	"How to install: ",
-	"How to use: ",
-	"License: ", 
-	"Collaborators: ",
-	"How to Contribute: ",
-	"How to Test: ",
-	"GitHub Username: ",
-	"Email: "
+	{
+		name: "title",
+		message: "Project Title: "
+	},
+	{
+		name: "description",
+		message: "Project Description: "
+	},
+	{
+		name: "install",
+		message: "How to Install: "
+	},
+	{
+		name: "usage",
+		message: "How to use: "
+	},
+	{
+		type: "list",
+		name: "license",
+		message: "Choose a License: ",
+		choices: ["none", 
+		"Apache_2.0_License", 
+		"GNU_General_Public_License_v3.0", 
+		"MIT_License", 
+		"BSD_2_Clause_Simplified_License", 
+		"BSD_3_Clause_New_or_Revised_License", 
+		"Boost_Software_License_1.0", 
+		"Creative_Commons_Zero_v1.0_Universal", 
+		"Eclipse_Public_License_2.0", 
+		"GNU_Affero_General_Public_License_v3.0",
+		"GNU_General_Public_License_v2.0",
+		"GNU_Lesser_General_Public_License_v2.1",
+		"Mozilla_Public_License_2.0",
+		"The_Unlicense"],
+		loop: false,
+	},
+	{
+	name: "credits",
+	message: "List Collaborators: "
+	},
+	{
+	name: "contributing",
+	message: "How others can contribute: "
+	},
+	{
+	name: "tests",
+	message: "How to test the program: "
+	},
+	{
+	name: "github",
+	message: "Your GitHub Username: "
+	},
+	{
+	name: "email",
+	message: "Your email: "
+	}
 ];
 
 // const furtherQuestions = [
@@ -40,64 +87,7 @@ function init() {
   )
 	console.log("Thank you for using the README Generator! \nPlease fill in the following prompts to make your professional readme.\n")
 	inquirer
-		.prompt([
-			{
-					name: "title",
-					message: questions[0]
-			},
-			{
-					name: "description",
-					message: questions[1]
-			},
-			{
-					name: "install",
-					message: questions[2]
-			},
-			{
-					name: "usage",
-					message: questions[3]
-			},
-			{
-					type: "list",
-					name: "license",
-					message: questions[4],
-					choices: ["none", 
-					"Apache_2.0_License", 
-					"GNU_General_Public_License_v3.0", 
-					"MIT_License", 
-					"BSD_2_Clause_Simplified_License", 
-					"BSD_3_Clause_New_or_Revised_License", 
-					"Boost_Software_License_1.0", 
-					"Creative_Commons_Zero_v1.0_Universal", 
-					"Eclipse_Public_License_2.0", 
-					"GNU_Affero_General_Public_License_v3.0",
-					"GNU_General_Public_License_v2.0",
-					"GNU_Lesser_General_Public_License_v2.1",
-					"Mozilla_Public_License_2.0",
-					"The_Unlicense"],
-					loop: false,
-			},
-			{
-				name: "credits",
-				message: questions[5]
-			},
-			{
-				name: "contributing",
-				message: questions[6]
-			},
-			{
-				name: "tests",
-				message: questions[7]
-			},
-			{
-				name: "github",
-				message: questions[8]
-			},
-			{
-				name: "email",
-				message: questions[9]
-			},
-		]).then(function(response){
+		.prompt(questions).then(function(response){
 			const templatePage = generateMarkdown(response);
 			const folderName = './readmeFolder';
 
