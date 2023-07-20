@@ -26,7 +26,8 @@ Navigate to the folder that holds the Readme Generator clone. Run it with node.j
 ![Screenshot](/images/readme.png)
 
 ## Credits
-N/A
+- Starting Code provided by Bootcamp Spot. 
+- [Dev Tips by Moho](https://www.youtube.com/watch?v=CfS6eOBe8AY) This YouTube video helped me understand some concepts using inquirer. It let to me rewriting my inquirer questions into an array of objects rather than just an array of questions and inserted into the inquirer objects later.
 
 ## How to Contribute
 Fork the project from github and push feature changes. All changes will be reviewed. 
