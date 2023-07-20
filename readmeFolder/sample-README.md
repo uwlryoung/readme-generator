@@ -3,7 +3,7 @@
   
   ## Description
   Creates a professional readme based on prompts given to the user.
-  undefined
+  
   ## Table of Contents 
   - [Description](#description)
   - [Installation](#installation)
