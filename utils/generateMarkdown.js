@@ -1,9 +1,9 @@
 // A function that returns answers for further questions about the projects description
 function renderFurtherQuestions(furtherDescription, motivation, why, problem, learn, standout){
-  if (furtherDescription === true){
-    return `\n${motivation} ${why} ${problem} ${learn} ${standout}`
+  if (furtherDescription === false){
+    return "";
   } else {
-    return;
+    return `\n${motivation} ${why} ${problem} ${learn} ${standout}`;
   }
 }
 
@@ -69,7 +69,6 @@ ${renderLicenseBadge(data.license)}
   - [Questions](#questions)
   ${data.future === false ? ``: `- [Challenges and Future Improvements](#challenges-and-future-improvements)`}
 
-
   ## Installation
   ${data.install}
 
@@ -82,10 +81,10 @@ ${renderLicenseBadge(data.license)}
   ## How to Contribute
   ${data.contributing}
 
-  ${renderLicenseSection(data.license, data.title)}
-
-  ## How to Test
+   ## How to Test
   ${data.tests}
+
+  ${renderLicenseSection(data.license, data.title)}
 
   ## Questions
   [GitHub Profile](https://github.com/${data.github})
