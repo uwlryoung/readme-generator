@@ -25,7 +25,8 @@ function renderLicenseSection(license, title) {
   if (license === "none"){
     return ``
   } else {
-    return `${title} is covered under the ${newLicense}.`
+    return `## License 
+  ${title} is covered under the ${newLicense}.`
   }
 }
 
@@ -44,14 +45,15 @@ function renderChallenges(future, challenges){
   if (future === false){
     return ``;
   } else {
-    return `${challenges}`;
+    return `## Challenges and Future Improvements 
+  ${challenges}`;
   }
 }
 
 // A function that generates markdown for the README
 function generateMarkdown(data) {
   return `# ${data.title}
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
   
   ## Description
   ${data.description}
@@ -80,7 +82,6 @@ function generateMarkdown(data) {
   ## How to Contribute
   ${data.contributing}
 
-  ## License
   ${renderLicenseSection(data.license, data.title)}
 
   ## How to Test
@@ -91,7 +92,6 @@ function generateMarkdown(data) {
 
   ${renderEmail(data.email)}
 
-  ## Challenges and Future Improvements
   ${renderChallenges(data.future, data.addChallenge)}
   `
 }

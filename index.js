@@ -87,24 +87,24 @@ const questions = [
 		loop: false,
 	},
 	{
-	name: "credits",
-	message: "List Collaborators: "
+		name: "credits",
+		message: "List Collaborators: "
 	},
 	{
-	name: "contributing",
-	message: "How others can contribute: "
+		name: "contributing",
+		message: "How others can contribute: "
 	},
 	{
-	name: "tests",
-	message: "How to test the program: "
+		name: "tests",
+		message: "How to test the program: "
 	},
 	{
-	name: "github",
-	message: "Your GitHub Username: "
+		name: "github",
+		message: "Your GitHub Username: "
 	},
 	{
-	name: "email",
-	message: "Your email: "
+		name: "email",
+		message: "Your email: "
 	},
 	{
 		type: "confirm",
