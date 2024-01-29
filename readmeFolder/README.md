@@ -1,37 +1,37 @@
-# Social Network API
-![License](https://img.shields.io/badge/License-MIT_License-blue.svg)
+# Python news Feed
+
   
   ## Description
-  A backend database for a social network where you can add users, add thouhts to the users, reactions to the thoughts and add users as friends. 
+  A news / blog website to make posts, comment on, and upvote posts, all made by using Python. 
   
+To add another skill set to my coding.  This was a continuing education self-paced course provided by EdX's GW Fullstack Coding Bootcamp.   I learned how to set up a website with Python. It was very interesting to compare some of the differences between JavaScript/Node.js and Python to make a website.  
   ## Table of Contents 
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Credits](#credits)
   - [How to Contribute](#how-to-contribute)
-  - [License](#license)
+  
   - [How to Test](#how-to-test)
   - [Questions](#questions)
   - [Challenges and Future Improvements](#challenges-and-future-improvements)
 
   ## Installation
-  Clone or fork from github. (See [github](#contact). 
+  Download the files from this github. Install venv files necessary for making websites based on Python. Furthermore, using pip, install these dependencies:
 
   ## Usage
-  1. Npm i 2. Start the server and create the database by running `npm run dev`. Use an API interface (such as insomnia) to make http requests to show/create/delete users/thoughts/reactions/friends. 
+  Run the command `python3 seeds.py` from the root file to seed your database. Use Flask to run the server from your local machine. This is a locally run server. 
 
   ## Credits
-  N/A
+  EdX Bootcamp Full Stack Webdevelopment Continuation Courses provided the code and I followed step by step to learn how to build a website with Python. 
 
   ## How to Contribute
-  Fork the project and add changes. All changes will be approved. 
+  Clone / Fork the project and push changes. Email me (see below) if you want to add anything.
 
    ## How to Test
-  Start the server and run many different http requests. 
+  
 
-  ## License 
-  Social Network API is covered under the MIT License.
+  
 
   ## Questions
   [GitHub Profile](https://github.com/uwlryoung)
@@ -39,5 +39,5 @@
   If you have any questions, feel free to email uwlryoung@gmail.com
 
   ## Challenges and Future Improvements 
-  - Once you update a user's username, it will also change all of the associated thoughts to that updated username. - Add a 'followers' section, which is like friends, except it's only one way (that is, you can follow a user, but they don't have to follow you back). - Add a frontend. 
+  Make it so that users can only upvote a post once (currently they can upvote for every time they click 'upvote')
   
